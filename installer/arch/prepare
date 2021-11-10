@@ -147,14 +147,17 @@ if [ -r "$bootstrappkglist" ]; then
 
         basepkg="$basepkg $package"
     done
+    if [ ! -n "$basepkg" ]; then
+        echo "No need to install base packages."
+    else
+        echo "Installing these base packages:"
+        echo "$basepkg"
 
-    echo "Installing these base packages:"
-    echo "$basepkg"
+        pacman --noconfirm --needed -S $basepkg
 
-    pacman --noconfirm --needed -S $basepkg
-
-    # Make sure all these packages are marked as installed explicitly
-    pacman -D --asexplicit $basepkg >/dev/null
+        # Make sure all these packages are marked as installed explicitly
+        pacman -D --asexplicit $basepkg >/dev/null
+    fi
 
     rm -f "$bootstrappkglist"
 
