@@ -123,7 +123,7 @@ while [ -n "$missing" ]; do
     missing="${missing#$package }"
     
     # skip libncursesw.so (fix issue #100)
-    if [ "$package" = "libncursesw.so" ]; then
+    if [ "$package" = "libncursesw.so" ] || [ "$package" = "libmagic.so" ]; then
         echo "Skipping: $package"
         installed="$installed $package "
         continue
