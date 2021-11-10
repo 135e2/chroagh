@@ -172,3 +172,6 @@ echo -e "LANG=en_US.UTF-8\nLC_COLLATE=C" > /etc/locale.conf
 
 # Fix the keyboard mode early on (this will be called again after dist-upgrade).
 fixkeyboardmode
+
+# Now let's install some extra packages (required later while building CRAS)
+pacman -S --noconfirm --needed gzip tar coreutils
