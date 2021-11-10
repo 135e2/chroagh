@@ -34,13 +34,13 @@ if [ "${DISTROAKA:-"$DISTRO"}" = 'debian' ]; then
     apt-get clean
 elif [ "${DISTROAKA:-"$DISTRO"}" = 'arch' ]; then
     # Archlinux equivalent of autoremove (recursively remove unneeded packages)
-    while true; do
-        remove="`pacman -Qdtq || true`"
-        if [ -z "$remove" ]; then
-            break
-        fi
-        pacman --noconfirm -R $remove
-    done
+    # while true; do
+    #    remove="`pacman -Qdtq || true`"
+    #    if [ -z "$remove" ]; then
+    #        break
+    #    fi
+    #    pacman --noconfirm -R $remove
+    # done
     # Clear package cache
     yes | pacman -Scc
 fi
