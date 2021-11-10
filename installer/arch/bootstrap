@@ -219,5 +219,6 @@ sh -e $BINDIR/enter-chroot -x -c "$(dirname $BOOTSTRAPCHROOT)" \
         # Force overwritting packages files in the bootstrap, without any sort
         # of dependency checking: this makes sure package content are properly
         # recorded
+	update-ca-trust  # Update CA first
         pacman -S --nodeps --asdeps --noconfirm --overwrite '*' $bootstrappkg
 "
