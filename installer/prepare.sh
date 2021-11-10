@@ -233,6 +233,7 @@ convert_automake() {
         y/()/{}/
         s/if\\ !\(.*\)/if [ -z "${\1}" ]; then/
         s/if\\ \([^!].*\)/if [ -n "${\1}" ]; then/
+	s/-Werror//g
         s/endif/fi/
     ' 'Makefile.am'
     echo '
